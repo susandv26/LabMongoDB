@@ -1,9 +1,11 @@
 import pymongo
 
+from Classes import Estudiante
+
 def main():
-    user = 'susan26'
-    password = 'Poke262414'
-    cluster = 'testpoo.0m9cazy.mongodb.net'
+    user = 'susan95'
+    password = '1234'
+    cluster = 'pootest.czbsnmb.mongodb.net'
     query_string = 'retryWrites=true&w=majority'
 
 
@@ -18,3 +20,10 @@ def main():
     client = pymongo.MongoClient(uri)
     db = client['unah']
     collection = db['estudiante']
+
+    estudiante = Estudiante("Susan","Delcid","95260937")
+    print(estudiante.__dict__)
+    collection.insert_one( estudiante.__dict__ )
+
+if __name__ == "__main__":
+    main()
